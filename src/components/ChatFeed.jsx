@@ -3,7 +3,7 @@ import TheirMessage from './TheirMessage';
 import MessageForm from './MessageForm';
 
 const ChatFeed = (props) => {
-  const { chats, activeChat, userName, messages } = props;
+  const { chats, activeChat, username, messages } = props;
 
   const chat = chats && chats[activeChat];
 
@@ -24,7 +24,7 @@ const ChatFeed = (props) => {
     return keys.map((key, index) => {
       const message = messages[key];
       const lastMessageKey = index === 0 ? null : keys[index - 1];
-      const isMyMessage = userName === message.sender.username;
+      const isMyMessage = username === message.sender.username;
 
       return (
         <div key={`msg_${index}`} style={{ width: '100%' }}>
