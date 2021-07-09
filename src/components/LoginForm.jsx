@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 const LoginForm = () => {
-    const [username, setUsername] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword]= useState('');
     const [error, setError] = useState ('');
 
@@ -11,12 +11,12 @@ const LoginForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const authObject = { 'Project-ID': 'ab293aa5-2bd0-4d39-a844-1fdaaa3b9f90', 'User-Name': username, 'User-Secret': password }
+        const authObject = { 'Project-ID': 'ab293aa5-2bd0-4d39-a844-1fdaaa3b9f90', 'User-Name': userName, 'User-Secret': password }
 
         try {
            await axios.get('https://api.chatengine.io/chats', {headers: authObject});
 
-            localStorage.setItem('username', username);
+            localStorage.setItem('username', userName);
             localStorage.setItem('password', password);
 
             window.location.reload(); 
@@ -34,7 +34,7 @@ const LoginForm = () => {
             <div className="form">
                 <h1 className="title">Welcome to Jeffsenger Chat App!</h1>
                     <form onSubmit={handleSubmit}>
-                        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} className ="input" placeholder="Username" required />
+                        <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} className ="input" placeholder="Username" required />
                         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className ="input" placeholder="Password" required />
                         <div align="center">
                             <button type="submit" className="button">
