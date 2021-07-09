@@ -14,9 +14,9 @@ const LoginForm = () => {
         const authObject = { 'Project-ID': 'ab293aa5-2bd0-4d39-a844-1fdaaa3b9f90', 'User-Name': userName, 'User-Secret': password }
 
         try {
-           await axios.get('https://api.chatengine.io/chats', {headers: authObject});
+            await axios.get('https://api.chatengine.io/chats', {headers: authObject});
 
-            localStorage.setItem('username', userName);
+            localStorage.setItem('userName', userName);
             localStorage.setItem('password', password);
 
             window.location.reload(); 
